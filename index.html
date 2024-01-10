@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body{
+            background-image: linear-gradient(black,grey,rgb(0, 0, 0));
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #container{
+            text-align: center;
+            height: 91.3vh;
+            color: white;
+            position: relative;
+            margin-top: 3rem;
+        }
+        /* #parent{
+            border: 1px solid black;
+            display: inline;
+            
+        } */
+        h2{
+            background-color: grey;
+            width: 80.4%;
+            margin: auto;
+            padding: 5px 0px;
+            text-transform: uppercase;
+        }
+        textarea{
+            width: 80%;
+            height: 60vh;
+            outline: none;
+            font-size: 1.4rem;
+            resize: none;
+        }#result-container{
+            background-color: grey;
+            width: 80.4%;
+            margin: auto;
+            font-size: 1.7rem;
+            padding: 5px 0px;
+        }
+        .digits{
+            font-weight: bold;
+            color: yellow;
+            margin-left: 0.5em;
+        }#wchars{
+            margin-left:1rem ;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="parent">
+            <h2>Word Counter</h2>
+            <textarea name="" id="input" cols="30" rows="10"></textarea>
+            <div id="result-container">
+                <span> words :</span><span id="words" class="digits"> 00 </span> <span id="wchars"> Chars :</span><span id="chars" class="digits"> 00 </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let input = document.getElementById('input');
+        let words = document.getElementById('words');
+        let chars = document.getElementById('chars');
+        input.addEventListener('input',() => {
+            text = input.value.trim();
+            if(text.length <= 9){
+                let double = "0" + text.length;
+                chars.innerHTML = double;
+            }else{
+                chars.innerHTML = text.length;
+            }
+            let wordscount = text.split(' ').filter(elm => elm != "");
+            // words.innerHTML = wordscount.length;
+            if(wordscount.length <= 9){
+                let double = "0" + wordscount.length;
+                words.innerHTML = double;
+            }else{
+                words.innerHTML = wordscount.length;
+            }
+        })
+    </script>
+</body>
+</html>
